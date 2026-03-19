@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "Backend do portfolio de Leonardo Cardoso",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "node node_modules/tsx/dist/cli.mjs watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "NODE_ENV=test vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.3.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.0.0",
+    "@types/supertest": "^7.2.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}

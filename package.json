@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node node_modules/concurrently/dist/bin/concurrently.js --names \"frontend,backend\" --prefix-colors \"cyan,green\" \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "test": "node node_modules/concurrently/dist/bin/concurrently.js --names \"frontend,backend\" --prefix-colors \"cyan,green\" \"npm run test --prefix frontend\" \"npm run test --prefix backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

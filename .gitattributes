@@ -1,0 +1,12 @@
+# Força LF para todos os arquivos de texto (evita problemas no Linux/Docker)
+* text=auto eol=lf
+
+# Binários — sem conversão
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
