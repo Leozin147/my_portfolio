@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { use_theme } from '../../context/ThemeContext'
 
-type Form_state = 'idle' | 'loading' | 'success' | 'error'
+type Form_state = 'idle' | 'loading' | 'success' | 'error' | 'rate_limited'
 
 export default function Contact() {
   const { theme } = use_theme()
@@ -35,6 +35,8 @@ export default function Contact() {
 
       if (res.ok) {
         set_form_state('success')
+      } else if (res.status === 429) {
+        set_form_state('rate_limited')
       } else {
         set_form_state('error')
       }
@@ -48,6 +50,15 @@ export default function Contact() {
       <div className='flex flex-col gap-2 mb-10'>
         <h1 data-testid='contact-title' className='text-3xl font-bold tracking-tight'>Get in Touch</h1>
         <p className={`text-base ${text_muted}`}>Entre em contato — responderei o mais rápido possível via WhatsApp.</p>
+      </div>
+
+      <div className='flex flex-col gap-2 mb-10'>
+        <p className={`text-sm font-medium ${text_muted}`}>Contato direto</p>
+        <div className='flex flex-col gap-1'>
+          <p className='text-sm'><span className={text_muted}>Nome: </span>Leonardo Fernandes Cardoso</p>
+          <p className='text-sm'><span className={text_muted}>Email: </span><a href='mailto:leonardo.fcardoso@hotmail.com' className='hover:underline'>leonardo.fcardoso@hotmail.com</a></p>
+          <p className='text-sm'><span className={text_muted}>WhatsApp: </span><a href='https://wa.me/5513974057602' target='_blank' rel='noopener noreferrer' className='hover:underline'>+55 (13) 97405-7602</a></p>
+        </div>
       </div>
 
       {form_state === 'success' ? (
@@ -119,6 +130,12 @@ export default function Contact() {
           {form_state === 'error' && (
             <p data-testid='error-message' className='text-sm text-red-400'>
               Algo deu errado. Tente novamente ou me contate diretamente.
+            </p>
+          )}
+
+          {form_state === 'rate_limited' && (
+            <p data-testid='rate-limited-message' className='text-sm text-yellow-400'>
+              Limite de mensagens atingido. Entre em contato diretamente comigo via E-mail ou WhatsApp.
             </p>
           )}
 
