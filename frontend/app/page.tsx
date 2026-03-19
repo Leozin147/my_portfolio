@@ -5,18 +5,18 @@ import SkillCard from '../components/SkillCard'
 import { use_theme } from '../context/ThemeContext'
 
 const backend_skills = [
-  { name: 'Node.js / Express', level: 4 },
+  { name: 'Node.js / Express', level: 3 },
   { name: 'TypeScript', level: 3 },
-  { name: 'JavaScript', level: 4 },
+  { name: 'JavaScript', level: 3 },
   { name: 'REST APIs', level: 5 },
   { name: 'PostgreSQL', level: 4 },
-  { name: 'Docker', level: 2 },
-  { name: 'Postman', level: 4 },
+  { name: 'Docker', level: 3 },
+  { name: 'Postman', level: 5 },
 ]
 
 const frontend_skills = [
-  { name: 'Next.js / React', level: 3 },
-  { name: 'TypeScript', level: 3 },
+  { name: 'Next.js / React', level: 2 },
+  { name: 'TypeScript', level: 2 },
   { name: 'Tailwind CSS', level: 4 },
 ]
 
@@ -43,7 +43,7 @@ export default function Home() {
       <Hero />
 
       <section className={`flex flex-col gap-8 px-6 py-12 border-t ${border_class}`}>
-        <h2 className='text-xl font-semibold'>Technical Toolkit</h2>
+        <h2 className='text-xl font-semibold'>Hard Skills</h2>
 
         <div className='flex flex-col gap-8'>
           <div className='flex flex-col gap-3'>

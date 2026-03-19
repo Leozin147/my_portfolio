@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Terminal from './Terminal'
 import { use_theme } from '../context/ThemeContext'
 
-const terminal_text = 'Low-Code & Backend Developer passionate about automation, intelligent integrations and AI. I build workflows that boost efficiency and reduce manual work — connecting systems to generate real, scalable productivity.'
+const terminal_text = 'Low-Code & Backend Developer. Passionate about automation, intelligent integrations and AI.'
 
 export default function Hero() {
   const { theme } = use_theme()
@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       <div className='animate-fade-in-up' style={{ animationDelay: '100ms' }}>
-        <Terminal text={terminal_text} />
+        <Terminal text={terminal_text} speed={35} />
       </div>
 
       <a

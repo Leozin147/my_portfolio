@@ -53,7 +53,20 @@ const projects = [
     title: 'Portfolio Pessoal',
     description: 'Este portfolio — desenvolvido com Next.js, Express e TDD com Vitest. Dark/light mode, terminal animado e integração com WhatsApp via Evolution API.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Vitest', 'Evolution API'],
-    status: 'in_progress' as const,
+    status: 'done' as const,
+    github: 'https://github.com/Leozin147/my_portfolio',
+    image_groups: [
+      {
+        label: 'Portfolio',
+        images: [
+          { src: '/images/projects/portfolio_home.jpeg', title: 'Home' },
+          { src: '/images/projects/portfolio_hardskills.png', title: 'Hard Skills' },
+          { src: '/images/projects/portfolio_projects.png', title: 'Projetos' },
+          { src: '/images/projects/portfolio_services.png', title: 'Services' },
+          { src: '/images/projects/portfolio_contact.png', title: 'Contato' },
+        ],
+      },
+    ],
   },
 ]
 
