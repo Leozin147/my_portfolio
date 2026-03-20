@@ -50,6 +50,12 @@ const projects = [
     ],
   },
   {
+    title: 'Site Institucional — Centro Espírita de Umbanda',
+    description: 'Landing page institucional com mapa, vídeo de apresentação, agenda, doações, documentos, projetos e marco dos 20 anos da instituição.',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    status: 'in_progress' as const,
+  },
+  {
     title: 'Portfolio Pessoal',
     description: 'Este portfolio — desenvolvido com Next.js, Express e TDD com Vitest. Dark/light mode, terminal animado e integração com WhatsApp via Evolution API.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Vitest', 'Evolution API'],
@@ -71,12 +77,6 @@ const projects = [
 ]
 
 const planned_projects = [
-  {
-    title: 'Site Institucional — Centro Espírita de Umbanda',
-    description: 'Landing page institucional com mapa, vídeo de apresentação, agenda, doações, documentos, projetos e marco dos 20 anos da instituição.',
-    techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    status: 'planned' as const,
-  },
   {
     title: 'Sistema de Aulas com Hierarquia de Acesso',
     description: 'Plataforma interna para armazenamento e acesso a aulas com controle por nível hierárquico.',
