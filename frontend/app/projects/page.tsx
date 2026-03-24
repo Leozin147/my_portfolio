@@ -14,7 +14,7 @@ const projects = [
       {
         label: 'N8N — Fluxos',
         images: [
-          { src: '/images/projects/chatbot_readme.jpeg', title: 'README' },
+          { src: '/images/projects/chat_readme.png', title: 'Readme - Chatbot' },
           { src: '/images/projects/chatbot1.jpeg', title: 'Chatbot' },
           { src: '/images/projects/chatbot2.jpeg', title: 'Chatbot (detalhe)' },
           { src: '/images/projects/chatbot_followup_readme.jpeg', title: 'README — Follow-up' },
@@ -66,7 +66,7 @@ const projects = [
       {
         label: 'Portfolio',
         images: [
-          { src: '/images/projects/portfolio_home.jpeg', title: 'Home' },
+          { src: '/images/projects/portfolio_home.png', title: 'Home' },
           { src: '/images/projects/portfolio_hardskills.png', title: 'Hard Skills' },
           { src: '/images/projects/portfolio_projects.png', title: 'Projetos' },
           { src: '/images/projects/portfolio_services.png', title: 'Services' },
