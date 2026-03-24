@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Junior Backend & Low-Code Developer — Automation, Integrations & AI",
+    "terminal": "Low-Code & Backend Developer. Passionate about automation, intelligent integrations and AI.",
+    "linkedin": "Connect with me on LinkedIn →",
+    "cta": "Explore My Services →"
+  },
+  "home": {
+    "toolkit_title": "Hard Skills",
+    "background_title": "Background",
+    "background": "I'm a Pleno Low-Code Developer and Junior Backend Developer, passionate about process automation, intelligent integrations and AI. Currently working, building automated workflows with N8N and REST APIs, creating dashboards in Power BI and Looker Studio, and collaborating with teams to map and implement automations. I'm also developing my Backend skills with Node.js, Express and TypeScript, with a focus on delivering real, scalable value."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Real projects developed and in progress.",
+    "done": "Completed",
+    "in_progress": "In Development",
+    "planned": "Planned"
+  },
+  "services": {
+    "title": "What I Can Build For You",
+    "subtitle": "What I can deliver for your business.",
+    "cta_title": "Ready to automate your business?",
+    "cta_desc": "Every manual process you have today is wasted time and money. Tell me the problem — I deliver the solution.",
+    "cta_button": "Talk to Leonardo →",
+    "service_1_title": "Process Automation",
+    "service_1_desc": "End-to-end workflow automation eliminating manual tasks and boosting team efficiency.",
+    "service_2_title": "System Integrations",
+    "service_2_desc": "Connecting platforms and services through REST APIs and webhooks for seamless data flow.",
+    "service_3_title": "AI Agents & Chatbots",
+    "service_3_desc": "Intelligent agents via WhatsApp and other channels using LLMs for real business workflows.",
+    "service_4_title": "Dashboards & Analytics",
+    "service_4_desc": "Data visualization and business intelligence dashboards for informed decision-making.",
+    "service_5_title": "Backend Development",
+    "service_5_desc": "APIs and backend services with focus on reliability, clean architecture and integrations."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Contact me — I'll reply as soon as possible via WhatsApp.",
+    "direct_label": "Direct contact",
+    "direct_name": "Name",
+    "direct_email": "Email",
+    "direct_whatsapp": "WhatsApp",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "message_placeholder": "Tell me about your project...",
+    "phone_label": "Enter your phone so I can contact you via WhatsApp.",
+    "message_label": "Message",
+    "date_label": "Do you have availability for a meeting so we can align the project and start as soon as possible?",
+    "date_hint": "Give me 2 dates and times you prefer and I'll confirm via WhatsApp if possible!",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success_title": "Message sent!",
+    "success_desc": "Message sent successfully. I'll contact you via WhatsApp soon.",
+    "error": "Something went wrong. Try again or contact me directly.",
+    "rate_limited": "Message limit reached. Contact me directly via Email or WhatsApp."
+  }
+}

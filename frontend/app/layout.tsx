@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '../context/ThemeContext'
+import { LocaleProvider } from '../context/LocaleContext'
 import Navbar from '../components/Navbar'
 
 const geist_sans = Geist({
@@ -44,8 +45,10 @@ export default function RootLayout({
     <html lang='pt-BR' suppressHydrationWarning>
       <body className={`${geist_sans.variable} ${geist_mono.variable} antialiased bg-zinc-950 text-zinc-50`}>
         <ThemeProvider>
-          <Navbar />
-          {children}
+          <LocaleProvider>
+            <Navbar />
+            {children}
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos",
+    "services": "Serviços",
+    "contact": "Contato"
+  },
+  "hero": {
+    "role": "Desenvolvedor Backend Junior & Low-Code Pleno — Automação, Integrações & IA",
+    "terminal": "Low-Code & Desenvolvedor Backend. Apaixonado por automação, integrações inteligentes e IA.",
+    "linkedin": "Conecte-se comigo no LinkedIn →",
+    "cta": "Explore Meus Serviços →"
+  },
+  "home": {
+    "toolkit_title": "Hard Skills",
+    "background_title": "Background",
+    "background": "Desenvolvedor Low-Code Pleno apaixonado por automação de processos, integrações inteligentes e IA. Atualmente na Contele Soluções Tecnológicas, criando fluxos automatizados com N8N e APIs REST, dashboards em Power BI e Looker Studio, e evoluindo no Backend com Node.js, Express e TypeScript."
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Projetos reais desenvolvidos e em andamento.",
+    "done": "Concluídos",
+    "in_progress": "Em Desenvolvimento",
+    "planned": "Em Planejamento"
+  },
+  "services": {
+    "title": "O Que Posso Construir Para Você",
+    "subtitle": "O que posso entregar para o seu negócio.",
+    "cta_title": "Pronto para automatizar seu negócio?",
+    "cta_desc": "Cada processo manual que você tem hoje é tempo e dinheiro desperdiçados. Me conta o problema — eu entrego a solução.",
+    "cta_button": "Falar com Leonardo →",
+    "service_1_title": "Automação de Processos",
+    "service_1_desc": "Automação ponta a ponta de fluxos de trabalho, eliminando tarefas manuais e aumentando a eficiência da equipe.",
+    "service_2_title": "Integrações de Sistemas",
+    "service_2_desc": "Conexão de plataformas e serviços via APIs REST e webhooks para fluxo de dados contínuo entre sistemas.",
+    "service_3_title": "Agentes de IA & Chatbots",
+    "service_3_desc": "Agentes inteligentes via WhatsApp e outros canais usando LLMs para fluxos de negócio reais.",
+    "service_4_title": "Dashboards & Análise de Dados",
+    "service_4_desc": "Visualização de dados e dashboards de inteligência de negócios para tomadas de decisão mais precisas.",
+    "service_5_title": "Desenvolvimento Backend",
+    "service_5_desc": "APIs e serviços backend com foco em confiabilidade, arquitetura limpa e integrações."
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Entre em contato — responderei o mais rápido possível via WhatsApp.",
+    "direct_label": "Contato direto",
+    "direct_name": "Nome",
+    "direct_email": "Email",
+    "direct_whatsapp": "WhatsApp",
+    "name_label": "Nome",
+    "name_placeholder": "Seu nome",
+    "message_placeholder": "Me conte sobre seu projeto...",
+    "phone_label": "Insira seu telefone para eu entrar em contato via WhatsApp.",
+    "message_label": "Mensagem",
+    "date_label": "Tem disponibilidade para reunião para já alinharmos o projeto e começarmos o quanto antes?",
+    "date_hint": "Me dê 2 datas e horários que prefere e te confirmo via WhatsApp se possível!",
+    "submit": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "success_title": "Mensagem enviada!",
+    "success_desc": "Mensagem enviada com sucesso. Em breve entrarei em contato via WhatsApp.",
+    "error": "Algo deu errado. Tente novamente ou me contate diretamente.",
+    "rate_limited": "Limite de mensagens atingido. Entre em contato diretamente comigo via E-mail ou WhatsApp."
+  }
+}

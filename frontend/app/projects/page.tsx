@@ -2,6 +2,7 @@
 
 import ProjectCard from '../../components/ProjectCard'
 import { use_theme } from '../../context/ThemeContext'
+import { useTranslations } from 'next-intl'
 
 const projects = [
   {
@@ -85,8 +86,15 @@ const planned_projects = [
   },
 ]
 
+const all_projects = [...projects, ...planned_projects]
+
+const done_projects = all_projects.filter(p => p.status === 'done')
+const in_progress_projects = all_projects.filter(p => p.status === 'in_progress')
+const planned = all_projects.filter(p => p.status === 'planned')
+
 export default function Projects() {
   const { theme } = use_theme()
+  const t = useTranslations('projects')
 
   const border_class = theme === 'dark' ? 'border-zinc-800' : 'border-zinc-200'
   const text_muted = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
@@ -94,24 +102,41 @@ export default function Projects() {
   return (
     <div className='max-w-7xl mx-auto px-6 py-12'>
       <div className='flex flex-col gap-2 mb-10'>
-        <h1 className='text-3xl font-bold tracking-tight'>Projetos</h1>
-        <p className={`text-base ${text_muted}`}>Projetos reais desenvolvidos e em andamento.</p>
+        <h1 className='text-3xl font-bold tracking-tight'>{t('title')}</h1>
+        <p className={`text-base ${text_muted}`}>{t('subtitle')}</p>
       </div>
 
-      <section className='flex flex-col gap-4 mb-12'>
-        <h2 className='text-lg font-semibold'>Concluídos & Em Desenvolvimento</h2>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-          {projects.map(project => (
-            <ProjectCard key={project.title} {...project} />
+      <section data-testid='section-done' className='flex flex-col gap-4 mb-12'>
+        <h2 className='text-lg font-semibold'>{t('done')}</h2>
+        <div className='columns-1 lg:columns-2 gap-6 space-y-6'>
+          {done_projects.map(project => (
+            <div key={project.title} className='break-inside-avoid'>
+              <ProjectCard {...project} />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className={`flex flex-col gap-4 pt-10 border-t ${border_class}`}>
-        <h2 className='text-lg font-semibold'>Em Planejamento</h2>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-          {planned_projects.map(project => (
-            <ProjectCard key={project.title} {...project} />
+      {in_progress_projects.length > 0 && (
+        <section data-testid='section-in_progress' className={`flex flex-col gap-4 mb-12 pt-10 border-t ${border_class}`}>
+          <h2 className='text-lg font-semibold'>{t('in_progress')}</h2>
+          <div className='columns-1 lg:columns-2 gap-6 space-y-6'>
+            {in_progress_projects.map(project => (
+              <div key={project.title} className='break-inside-avoid'>
+                <ProjectCard {...project} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section data-testid='section-planned' className={`flex flex-col gap-4 pt-10 border-t ${border_class}`}>
+        <h2 className='text-lg font-semibold'>{t('planned')}</h2>
+        <div className='columns-1 lg:columns-2 gap-6 space-y-6'>
+          {planned.map(project => (
+            <div key={project.title} className='break-inside-avoid'>
+              <ProjectCard {...project} />
+            </div>
           ))}
         </div>
       </section>
