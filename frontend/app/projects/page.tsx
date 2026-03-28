@@ -25,27 +25,20 @@ const projects = [
   },
   {
     title: 'Sistema de Gestão — Centro Espírita de Umbanda',
-    description: 'Board de gestão de atendimentos espirituais com cadastro de consulentes, registro de trabalhos (curas, ebós, fogos), controle de presença e relatórios. Backend em N8N + Supabase, frontend em React.',
-    techs: ['N8N', 'Supabase', 'PostgreSQL', 'Webhooks', 'JavaScript', 'React', 'TypeScript'],
+    description: 'Sistema full-stack de gestão de atendimentos espirituais com cadastro de consulentes, registro de trabalhos (curas, ebós, edições), controle de presença e relatórios. Backend Node.js + Express + PostgreSQL, frontend React.',
+    techs: ['Node.js', 'Express', 'PostgreSQL', 'React', 'TypeScript', 'Supabase'],
     status: 'done' as const,
-    github: 'https://github.com/Leozin147/Projeto-Terreiro---Cadastros-e-Registros',
+    github: 'https://github.com/Leozin147/Sistema-Ceunsc',
     image_groups: [
       {
-        label: 'N8N — Fluxos',
+        label: 'Sistema',
         images: [
-          { src: '/images/projects/sistema_ceusc_readme.jpeg', title: 'README' },
-          { src: '/images/projects/sistema_ceunsc_registrotrabalhos.jpeg', title: 'Registro de Trabalhos' },
-          { src: '/images/projects/sistema_ceunsc_consultaregistros.jpeg', title: 'Consulta de Registros' },
-          { src: '/images/projects/sistema_ceunsc_attstatus_e_consulta_presenca.jpeg', title: 'Status & Presença' },
-        ],
-      },
-      {
-        label: 'Site',
-        images: [
-          { src: '/images/projects/sistema_ceunsc_login.jpeg', title: 'Login' },
-          { src: '/images/projects/sistema_ceunsc_registro_trabalhos_site.jpeg', title: 'Registro de Trabalhos' },
-          { src: '/images/projects/sistema_ceunsc_relatorio_curas_site.jpeg', title: 'Relatório — Curas' },
-          { src: '/images/projects/sistema_ceunsc_relatorio_trabalhos_site.jpeg', title: 'Relatório — Trabalhos' },
+          { src: '/images/projects/sistema_ceunsc_login.png', title: 'Login' },
+          { src: '/images/projects/sistema_ceunsc_registros.png', title: 'Registros' },
+          { src: '/images/projects/sistema_ceunsc_relatorio_trabalhos.png', title: 'Relatório — Trabalhos' },
+          { src: '/images/projects/sistema_ceunsc_relatorio_cura.png', title: 'Relatório — Curas' },
+          { src: '/images/projects/sistema_ceunsc_relatorio_ebo.png', title: 'Relatório — Ebós' },
+          { src: '/images/projects/sistema_ceunsc_relatorio_edicao.png', title: 'Relatório — Edições' },
         ],
       },
     ],
