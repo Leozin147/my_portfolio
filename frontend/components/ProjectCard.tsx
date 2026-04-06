@@ -5,6 +5,7 @@ import { use_theme } from '../context/ThemeContext'
 import Lightbox from './Lightbox'
 
 type Status = 'done' | 'in_progress' | 'planned'
+type Visibility = 'public' | 'private'
 
 interface ProjectImage {
   src: string
@@ -21,6 +22,7 @@ interface ProjectCardProps {
   description: string
   techs: string[]
   status: Status
+  visibility: Visibility
   github?: string
   image_groups?: ImageGroup[]
 }
@@ -37,7 +39,17 @@ const status_class: Record<Status, string> = {
   planned: 'bg-zinc-500/10 text-zinc-400 border border-zinc-500/20',
 }
 
-export default function ProjectCard({ title, description, techs, status, github, image_groups }: ProjectCardProps) {
+const visibility_label: Record<Visibility, string> = {
+  public: 'Open Source',
+  private: 'Privado',
+}
+
+const visibility_class: Record<Visibility, string> = {
+  public: 'bg-green-500/10 text-green-400 border border-green-500/20',
+  private: 'bg-zinc-500/10 text-zinc-400 border border-zinc-500/20',
+}
+
+export default function ProjectCard({ title, description, techs, status, visibility, github, image_groups }: ProjectCardProps) {
   const { theme } = use_theme()
   const [lightbox, set_lightbox] = useState<ProjectImage | null>(null)
 
@@ -58,9 +70,14 @@ export default function ProjectCard({ title, description, techs, status, github,
         <div className='flex flex-col gap-4'>
           <div className='flex items-start justify-between gap-2'>
             <h3 className='font-semibold text-lg'>{title}</h3>
-            <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${status_class[status]}`}>
-              {status_label[status]}
-            </span>
+            <div className='flex shrink-0 flex-col items-end gap-1.5'>
+              <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${status_class[status]}`}>
+                {status_label[status]}
+              </span>
+              <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${visibility_class[visibility]}`}>
+                {visibility_label[visibility]}
+              </span>
+            </div>
           </div>
 
           <p data-testid='project-description' className={`text-sm leading-relaxed ${desc_class}`}>
@@ -75,15 +92,14 @@ export default function ProjectCard({ title, description, techs, status, github,
             ))}
           </div>
 
-          {github && (
+          {visibility === 'public' && github && (
             <a
               href={github}
               target='_blank'
               rel='noopener noreferrer'
-              aria-label='GitHub'
               className='self-start text-xs text-zinc-400 underline underline-offset-2 hover:text-zinc-200 transition-colors'
             >
-              GitHub →
+              Ver repositório →
             </a>
           )}
         </div>

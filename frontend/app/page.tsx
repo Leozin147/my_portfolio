@@ -43,6 +43,11 @@ export default function Home() {
     <div className='max-w-4xl mx-auto'>
       <Hero />
 
+      <section data-testid='section-background' className={`flex flex-col gap-4 px-6 py-12 border-t ${border_class}`}>
+        <h2 className='text-xl font-semibold'>{t('background_title')}</h2>
+        <p data-testid='background-text' className={`leading-relaxed ${text_muted}`}>{t('background')}</p>
+      </section>
+
       <section data-testid='section-toolkit' className={`flex flex-col gap-8 px-6 py-12 border-t ${border_class}`}>
         <h2 className='text-xl font-semibold'>{t('toolkit_title')}</h2>
 
@@ -74,11 +79,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section data-testid='section-background' className={`flex flex-col gap-4 px-6 py-12 border-t ${border_class}`}>
-        <h2 className='text-xl font-semibold'>{t('background_title')}</h2>
-        <p data-testid='background-text' className={`leading-relaxed ${text_muted}`}>{t('background')}</p>
       </section>
     </div>
   )

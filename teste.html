@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Formulário de Envio Parcial</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:           #0d0a14;
+    --surface:      #130f1e;
+    --surface2:     #1a1428;
+    --border:       #2a1f42;
+    --border-hover: #3d2e5e;
+    --accent:       #8B23E5;
+    --accent-light: #B55FFF;
+    --accent-dim:   #6C12B9;
+    --accent-dark:  #4E0091;
+    --accent-glow:  rgba(139,35,229,0.18);
+    --accent-glow2: rgba(181,95,255,0.10);
+    --text:         #f0eaf8;
+    --text-muted:   #9b85bb;
+    --text-dim:     #4a3870;
+    --error:        #ff4d6a;
+    --warning:      #ffb84d;
+    --success:      #4dffb4;
+    --section-bg:   #0f0b18;
+    --input-bg:     #110d1c;
+    --radius:       7px;
+    --radius-lg:    14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 35% at 15% 5%,  rgba(139,35,229,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 85% 85%,  rgba(108,18,185,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 30% at 60% 40%,  rgba(181,95,255,0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 44px;
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+  }
+
+  .header .tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header .tag::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .header h1 span { color: var(--accent-light); }
+
+  .header p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+
+  .section:hover { border-color: var(--border-hover); }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── SHIPPING SECTION ── */
+  .shipping-section {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shipping-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-dim);
+  }
+
+  .shipping-section.primeiro::before { background: var(--accent-light); }
+
+  .shipping-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .shipping-section-title .badge {
+    background: var(--accent-glow);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent-light);
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+  }
+
+  .shipping-section-title .badge.primeiro-badge {
+    background: rgba(181,95,255,0.15);
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+  }
+
+  /* ── FIELD ── */
+  .field { margin-bottom: 18px; }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  label .required { color: var(--accent-light); margin-left: 2px; }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input[type="date"] { color-scheme: dark; }
+
+  input:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+    background: #160f24;
+  }
+
+  input:hover:not(:focus), select:hover:not(:focus) { border-color: var(--border-hover); }
+
+  input::placeholder { color: var(--text-dim); }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-dim);
+    pointer-events: none;
+    font-size: 12px;
+  }
+
+  select option { background: #1a1428; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 500px) { .checklist { grid-template-columns: 1fr; } }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+
+  .check-item:hover { border-color: var(--border-hover); background: #160f24; }
+
+  .check-item.selected {
+    border-color: var(--accent-dim);
+    background: var(--accent-glow);
+  }
+
+  .check-item input[type="checkbox"] {
+    width: 16px; height: 16px; min-width: 16px;
+    accent-color: var(--accent-light);
+    cursor: pointer;
+    border: none; padding: 0; background: none;
+  }
+
+  .check-item input[type="checkbox"]:focus { outline: none; box-shadow: none; }
+  .check-item span { font-size: 12px; color: var(--text); letter-spacing: 0.3px; }
+
+  /* ── RADIO ── */
+  .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+    flex: 1;
+    min-width: 190px;
+  }
+
+  .radio-item:hover { border-color: var(--border-hover); }
+
+  .radio-item.selected {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .radio-item input[type="radio"] {
+    width: 15px; height: 15px; min-width: 15px;
+    accent-color: var(--accent-light);
+    cursor: pointer;
+    border: none; padding: 0; background: none;
+  }
+
+  .radio-item input[type="radio"]:focus { outline: none; box-shadow: none; }
+  .radio-item span { font-size: 12px; color: var(--text); }
+
+  /* ── FIELDS GRID ── */
+  .fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 500px) { .fields-grid { grid-template-columns: 1fr; } }
+
+  /* ── DYNAMIC SECTION ── */
+  .dynamic-section { display: none; }
+  .dynamic-section.visible { display: block; animation: fadeSlide 0.3s ease; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* ── TOTAL BAR ── */
+  .total-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: border-color 0.3s;
+  }
+
+  .total-bar.error { border-color: var(--error); }
+  .total-bar.ok    { border-color: rgba(77,255,180,0.5); }
+
+  .total-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--accent-light);
+    transition: color 0.3s;
+  }
+
+  .total-num.error-val { color: var(--error); }
+  .total-num.ok-val    { color: var(--success); }
+
+  /* ── SUBMIT ── */
+  .btn-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 16px 32px;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover {
+    background: var(--accent-light);
+    box-shadow: 0 0 28px rgba(139,35,229,0.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-submit:active { transform: translateY(0); }
+
+  .btn-submit:disabled {
+    background: var(--text-dim);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .spinner {
+    display: none;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  .btn-submit.loading .spinner { display: block; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── ALERT ── */
+  .alert {
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    display: none;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .alert.visible { display: flex; }
+
+  .alert.success {
+    background: rgba(77,255,180,0.07);
+    border: 1px solid rgba(77,255,180,0.35);
+    color: var(--success);
+  }
+
+  .alert.danger {
+    background: rgba(255,77,106,0.07);
+    border: 1px solid rgba(255,77,106,0.35);
+    color: var(--error);
+  }
+
+  .alert.warning {
+    background: rgba(255,184,77,0.07);
+    border: 1px solid rgba(255,184,77,0.35);
+    color: var(--warning);
+  }
+
+  .alert-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .alert-body strong { display: block; margin-bottom: 3px; }
+
+  .help { font-size: 11px; color: var(--text-dim); margin-top: 6px; line-height: 1.5; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="tag">Logística</div>
+    <h1>Envio <span>Parcial</span></h1>
+    <p>Preencha os dados abaixo. A soma das quantidades por envio deve ser igual à quantidade total informada.</p>
+  </div>
+
+  <div id="alertBox" class="alert">
+    <span class="alert-icon" id="alertIcon">⚠</span>
+    <div class="alert-body">
+      <strong id="alertTitle"></strong>
+      <span id="alertMsg"></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Identificação</div>
+    <div class="field">
+      <label>Pipedrive do Cliente <span class="required">*</span></label>
+      <input type="text" id="pipedrive" placeholder="ex: 12345 ou nome do deal"/>
+    </div>
+    <div class="field">
+      <label>Quantidade Total <span class="required">*</span></label>
+      <input type="number" id="qtdTotal" min="1" placeholder="Total de unidades deste pedido" oninput="updateTotals()"/>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tipos de Produto</div>
+    <div class="field">
+      <label>Selecione os tipos <span class="required">*</span></label>
+      <div class="checklist">
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Rastreador 4G"> <span>Rastreador 4G</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Rastreador OBD4G"> <span>Rastreador OBD4G</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Rastreador OBD2G"> <span>Rastreador OBD2G</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Rastreador 2G"> <span>Rastreador 2G</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Câmera Plus"> <span>Câmera Plus</span>
+        </label>
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="tipo" value="Câmera Max"> <span>Câmera Max</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Configuração de Envios</div>
+
+    <div class="field">
+      <label>Tipo de Envio <span class="required">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item" onclick="selectTipoEnvio(this,'primeiro_unico')">
+          <input type="radio" name="tipoEnvio" value="primeiro_unico">
+          <span>Apenas Primeiro Envio</span>
+        </label>
+        <label class="radio-item" onclick="selectTipoEnvio(this,'primeiro_parcial')">
+          <input type="radio" name="tipoEnvio" value="primeiro_parcial">
+          <span>Primeiro Envio + Parcial</span>
+        </label>
+      </div>
+      <p class="help" id="tipoEnvioHelp"></p>
+    </div>
+
+    <div class="field" id="containerQtdEnvios" style="display:none;">
+      <label>Quantidade Total de Envios <span class="required">*</span></label>
+      <div class="select-wrap">
+        <select id="qtdEnvios" onchange="buildShippingSections()">
+          <option value="">— Selecione —</option>
+          <option value="1" style="display:none">1 envio</option>
+          <option value="2">2 envios (1º + 1 parcial)</option>
+          <option value="3">3 envios (1º + 2 parciais)</option>
+          <option value="4">4 envios (1º + 3 parciais)</option>
+          <option value="5">5 envios (1º + 4 parciais)</option>
+        </select>
+      </div>
+      <p class="help" id="qtdEnviosHelp"></p>
+    </div>
+  </div>
+
+  <div id="envioSections" class="dynamic-section"></div>
+
+  <div id="totalBarWrap" style="display:none;">
+    <div class="total-bar" id="totalBar">
+      <span>Total preenchido vs. esperado</span>
+      <span>
+        <span class="total-num" id="totalFilled">0</span>
+        <span style="color:var(--text-dim);font-size:11px"> / </span>
+        <span class="total-num" id="totalExpected">—</span>
+        <span style="color:var(--text-dim);font-size:10px;margin-left:4px">unid.</span>
+      </span>
+    </div>
+  </div>
+
+  <button class="btn-submit" id="submitBtn" onclick="submitForm()">
+    <span class="spinner"></span>
+    <span class="btn-text">Enviar Formulário</span>
+  </button>
+
+</div>
+
+<script>
+const WEBHOOK_URL = "https://primary-production-2349.up.railway.app/webhook/envio-parcial-data";
+let tipoEnvioSelecionado = null;
+
+function getLabels(tipo, qtd) {
+  const out = [];
+  for (let i = 0; i < qtd; i++) {
+    out.push(i === 0 ? 'Primeiro Envio' : `${i + 1}º Envio Parcial`);
+  }
+  return out;
+}
+
+function toggleCheck(labelEl) {
+  const cb = labelEl.querySelector('input[type="checkbox"]');
+  setTimeout(() => {
+    labelEl.classList.toggle('selected', cb.checked);
+    buildShippingSections();
+    updateTotals();
+  }, 0);
+}
+
+function selectTipoEnvio(labelEl, val) {
+  document.querySelectorAll('.radio-item').forEach(r => r.classList.remove('selected'));
+  labelEl.classList.add('selected');
+  tipoEnvioSelecionado = val;
+
+  const containerQtd = document.getElementById('containerQtdEnvios');
+  const selectQtd = document.getElementById('qtdEnvios');
+  const helpEl = document.getElementById('tipoEnvioHelp');
+
+  if (val === 'primeiro_unico') {
+    containerQtd.style.display = 'none';
+    selectQtd.value = "1";
+    helpEl.textContent = 'Envio imediato dos produtos selecionados.';
+  } else {
+    containerQtd.style.display = 'block';
+    selectQtd.value = ""; 
+    helpEl.textContent = 'Organize o cronograma de entregas parciais.';
+  }
+
+  buildShippingSections();
+}
+
+function buildShippingSections() {
+  const qtd = parseInt(document.getElementById('qtdEnvios').value) || 0;
+  const tipos = getSelectedTipos();
+  const container = document.getElementById('envioSections');
+  const barWrap = document.getElementById('totalBarWrap');
+
+  if (!qtd || !tipos.length || !tipoEnvioSelecionado) {
+    container.classList.remove('visible');
+    container.innerHTML = '';
+    barWrap.style.display = 'none';
+    return;
+  }
+
+  const labels = getLabels(tipoEnvioSelecionado, qtd);
+  let html = '';
+
+  for (let i = 0; i < qtd; i++) {
+    const lbl = labels[i];
+    const isFirst = (i === 0);
+
+    html += `<div class="section shipping-section ${isFirst ? 'primeiro' : ''}">
+      <div class="shipping-section-title">
+        ${lbl}
+        <span class="badge ${isFirst ? 'primeiro-badge' : ''}">${isFirst ? 'PRIMEIRO' : 'PARCIAL'}</span>
+      </div>
+      <div class="fields-grid">`;
+
+    tipos.forEach(tipo => {
+      html += `<div class="field">
+        <label>${tipo} — Qtd <span class="required">*</span></label>
+        <input type="number" id="qty_${sid(i,tipo)}" min="0" placeholder="0" oninput="updateTotals()"/>
+      </div>`;
+    });
+
+    html += `</div>`;
+
+    // SÓ MOSTRA DATA SE NÃO FOR O PRIMEIRO ENVIO
+    if (!isFirst) {
+      html += `<div class="divider"></div>
+      <div class="field">
+        <label>Data Prevista — ${lbl} <span class="required">*</span></label>
+        <input type="date" id="date_${i}"/>
+      </div>`;
+    }
+
+    html += `</div>`;
+  }
+
+  container.innerHTML = html;
+  container.classList.add('visible');
+  barWrap.style.display = 'block';
+  updateTotals();
+}
+
+function sid(idx, tipo) {
+  return `${idx}_${tipo.replace(/[^a-zA-Z0-9]/g, '_')}`;
+}
+
+function getSelectedTipos() {
+  return Array.from(document.querySelectorAll('input[name="tipo"]:checked')).map(c => c.value);
+}
+
+function updateTotals() {
+  const expected = parseInt(document.getElementById('qtdTotal').value) || 0;
+  const qtd = parseInt(document.getElementById('qtdEnvios').value) || 0;
+  const tipos = getSelectedTipos();
+  const barWrap = document.getElementById('totalBarWrap');
+
+  if (!qtd || !tipos.length || !tipoEnvioSelecionado) {
+    barWrap.style.display = 'none';
+    return;
+  }
+
+  barWrap.style.display = 'block';
+  let soma = 0;
+  for (let i = 0; i < qtd; i++) {
+    tipos.forEach(tipo => {
+      const el = document.getElementById(`qty_${sid(i, tipo)}`);
+      if (el) soma += parseInt(el.value) || 0;
+    });
+  }
+
+  const filledEl = document.getElementById('totalFilled');
+  const expectEl = document.getElementById('totalExpected');
+  const bar = document.getElementById('totalBar');
+
+  filledEl.textContent = soma;
+  expectEl.textContent = expected || '—';
+  filledEl.className = 'total-num';
+  expectEl.className = 'total-num';
+  bar.className = 'total-bar';
+
+  if (!expected) return;
+  if (soma === expected) {
+    bar.className = 'total-bar ok';
+    filledEl.className = 'total-num ok-val';
+    expectEl.className = 'total-num ok-val';
+  } else {
+    bar.className = 'total-bar error';
+    filledEl.className = 'total-num error-val';
+  }
+}
+
+function showAlert(type, title, msg) {
+  const icons = { danger: '✕', warning: '⚠', success: '✓' };
+  const box = document.getElementById('alertBox');
+  box.className = `alert ${type} visible`;
+  document.getElementById('alertIcon').textContent = icons[type] || '⚠';
+  document.getElementById('alertTitle').textContent = title;
+  document.getElementById('alertMsg').textContent = msg;
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function hideAlert() {
+  document.getElementById('alertBox').classList.remove('visible');
+}
+
+function validate() {
+  const pipedrive = document.getElementById('pipedrive').value.trim();
+  const qtdTotal = parseInt(document.getElementById('qtdTotal').value);
+  const qtdEnvios = parseInt(document.getElementById('qtdEnvios').value);
+  const tipos = getSelectedTipos();
+
+  if (!pipedrive) { showAlert('danger','Campo obrigatório','Informe o Pipedrive.'); return false; }
+  if (!qtdTotal || qtdTotal < 1) { showAlert('danger','Campo obrigatório','Informe a Qtd Total.'); return false; }
+  if (!tipos.length) { showAlert('danger','Campo obrigatório','Selecione os produtos.'); return false; }
+  if (!tipoEnvioSelecionado) { showAlert('danger','Campo obrigatório','Selecione o Tipo de Envio.'); return false; }
+
+  const labels = getLabels(tipoEnvioSelecionado, qtdEnvios);
+  for (let i = 0; i < qtdEnvios; i++) {
+    // VALIDA DATA APENAS PARA ENVIOS PARCIAIS (i > 0)
+    if (i > 0) {
+      const dateEl = document.getElementById(`date_${i}`);
+      if (!dateEl || !dateEl.value) {
+        showAlert('danger','Data obrigatória',`Preencha a data do "${labels[i]}".`);
+        return false;
+      }
+    }
+    
+    // VALIDA QUANTIDADES
+    for (const tipo of tipos) {
+      const el = document.getElementById(`qty_${sid(i, tipo)}`);
+      if (!el || el.value === '' || parseInt(el.value) < 0) {
+        showAlert('danger','Quantidade obrigatória',`Preencha a qtd de "${tipo}" no "${labels[i]}".`);
+        return false;
+      }
+    }
+  }
+
+  let soma = 0;
+  for (let i = 0; i < qtdEnvios; i++) {
+    tipos.forEach(tipo => {
+      const el = document.getElementById(`qty_${sid(i, tipo)}`);
+      if (el) soma += parseInt(el.value) || 0;
+    });
+  }
+
+  if (soma !== qtdTotal) {
+    showAlert('warning','Qtd não confere',`A soma deu ${soma}, mas o esperado é ${qtdTotal}.`);
+    return false;
+  }
+  return true;
+}
+
+function buildPayload() {
+  const qtdEnvios = parseInt(document.getElementById('qtdEnvios').value);
+  const tipos = getSelectedTipos();
+  const labels = getLabels(tipoEnvioSelecionado, qtdEnvios);
+  
+  const envios = [];
+  for (let i = 0; i < qtdEnvios; i++) {
+    const itens = tipos.map(tipo => ({
+      tipo,
+      quantidade: parseInt(document.getElementById(`qty_${sid(i, tipo)}`).value) || 0
+    }));
+    
+    // DATA É VAZIA PARA O PRIMEIRO ENVIO
+    const dataVal = (i === 0) ? "" : document.getElementById(`date_${i}`).value;
+    
+    envios.push({ 
+      label: labels[i], 
+      data: dataVal, 
+      itens 
+    });
+  }
+
+  return {
+    pipedrive: document.getElementById('pipedrive').value.trim(),
+    quantidade_total: parseInt(document.getElementById('qtdTotal').value),
+    tipos_selecionados: tipos,
+    tipo_envio: tipoEnvioSelecionado,
+    quantidade_envios: qtdEnvios,
+    envios
+  };
+}
+
+async function submitForm() {
+  hideAlert();
+  if (!validate()) return;
+
+  const btn = document.getElementById('submitBtn');
+  const txtEl = btn.querySelector('.btn-text');
+  btn.disabled = true;
+  btn.classList.add('loading');
+  txtEl.textContent = 'Enviando...';
+
+  try {
+    const res = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buildPayload())
+    });
+
+    if (res.ok) {
+      showAlert('success','Sucesso!','Dados enviados com sucesso.');
+      setTimeout(() => window.location.reload(), 60);
+    } else {
+      showAlert('danger','Erro','Erro ao processar a solicitação.');
+    }
+  } catch (err) {
+    showAlert('danger','Erro de conexão','Não foi possível conectar ao servidor.');
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    txtEl.textContent = 'Enviar Formulário';
+  }
+}
+</script>
+</body>
+</html>

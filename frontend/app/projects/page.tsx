@@ -10,6 +10,7 @@ const projects = [
     description: 'Agente de IA via WhatsApp que aborda clientes inadimplentes, negocia pagamento ou registra promessa de pagamento. Suporta texto, áudio e imagem com 3 fluxos distintos no mesmo board.',
     techs: ['N8N', 'Evolution API', 'Gemini Flash 2.5', 'OpenAI Whisper', 'OpenAI Vision', 'Redis', 'Supabase', 'JavaScript'],
     status: 'done' as const,
+    visibility: 'private' as const,
     image_groups: [
       {
         label: 'N8N — Fluxos',
@@ -28,7 +29,7 @@ const projects = [
     description: 'Sistema full-stack de gestão de atendimentos espirituais com cadastro de consulentes, registro de trabalhos (curas, ebós, edições), controle de presença e relatórios. Backend Node.js + Express + PostgreSQL, frontend React.',
     techs: ['Node.js', 'Express', 'PostgreSQL', 'React', 'TypeScript', 'Supabase'],
     status: 'done' as const,
-    github: 'https://github.com/Leozin147/Sistema-Ceunsc',
+    visibility: 'private' as const,
     image_groups: [
       {
         label: 'Sistema',
@@ -48,12 +49,14 @@ const projects = [
     description: 'Landing page institucional com mapa, vídeo de apresentação, agenda, doações, documentos, projetos e marco dos 20 anos da instituição.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     status: 'in_progress' as const,
+    visibility: 'private' as const,
   },
   {
     title: 'Portfolio Pessoal',
     description: 'Este portfolio — desenvolvido com Next.js, Express e TDD com Vitest. Dark/light mode, terminal animado e integração com WhatsApp via Evolution API.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Vitest', 'Evolution API'],
     status: 'done' as const,
+    visibility: 'public' as const,
     github: 'https://github.com/Leozin147/my_portfolio',
     image_groups: [
       {
@@ -76,6 +79,7 @@ const planned_projects = [
     description: 'Plataforma interna para armazenamento e acesso a aulas com controle por nível hierárquico.',
     techs: ['Node.js', 'Next.js', 'TypeScript', 'Supabase'],
     status: 'planned' as const,
+    visibility: 'private' as const,
   },
 ]
 
