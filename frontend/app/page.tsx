@@ -29,6 +29,17 @@ const tools_skills = [
   { name: 'Looker Studio', level: 5 },
   { name: 'Webhooks / JSON', level: 5 },
   { name: 'Git', level: 4 },
+  { name: 'GCP', level: 3 },
+  { name: 'Cloudflare', level: 3 },
+  { name: 'Supabase', level: 4 },
+  { name: 'Redis', level: 4 },
+  { name: 'Evolution API', level: 5 },
+  { name: 'OpenAI API', level: 4 },
+  { name: 'Vitest', level: 3 },
+  { name: 'Notion', level: 5 },
+  { name: 'VPS (Linux)', level: 4 },
+  { name: 'Postman', level: 5 },
+
 ]
 
 export default function Home() {

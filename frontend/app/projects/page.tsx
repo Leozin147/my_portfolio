@@ -45,6 +45,49 @@ const projects = [
     ],
   },
   {
+    title: 'Recicla+',
+    description: 'MVP de marketplace de impacto social construído como startup de faculdade, alinhado às ODS da ONU. A plataforma conecta usuários que desejam descartar resíduos, coletores parceiros e empresas ESG em um ecossistema de economia circular: o usuário solicita uma coleta, acompanha em tempo real, acumula eco pontos e os resgata em recompensas de marcas parceiras. Empresas criam campanhas de cupons e acompanham métricas de impacto e relatórios ESG. Atuei como desenvolvedor e CTO, sendo responsável pelo projeto inteiro, arquitetura, stack e implementação.',
+    techs: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'Docker'],
+    status: 'done' as const,
+    visibility: 'private' as const,
+    image_groups: [
+      {
+        label: 'Login',
+        images: [
+          { src: '/images/projects/recicla+_login.png', title: 'Login' },
+        ],
+      },
+      {
+        label: 'Usuário',
+        images: [
+          { src: '/images/projects/recicla+_usuario.png', title: 'Home' },
+          { src: '/images/projects/recicla+_usuario2.png', title: 'Solicitar Coleta' },
+          { src: '/images/projects/recicla+_usuario_coletas.png', title: 'Coletas' },
+          { src: '/images/projects/recicla+_usuario_beneficios.png', title: 'Benefícios' },
+          { src: '/images/projects/recicla+_usuario_impacto.png', title: 'Impacto' },
+          { src: '/images/projects/recicla+_usuario_perfil.png', title: 'Perfil' },
+        ],
+      },
+      {
+        label: 'Coletor',
+        images: [
+          { src: '/images/projects/recicla+_coletor_solicitacoes.png', title: 'Solicitações' },
+          { src: '/images/projects/recicla+_coletor_historico.png', title: 'Histórico' },
+          { src: '/images/projects/recicla+_coletor_perfil.png', title: 'Perfil' },
+        ],
+      },
+      {
+        label: 'Empresa',
+        images: [
+          { src: '/images/projects/recicla+_empresa_dashboard.png', title: 'Dashboard' },
+          { src: '/images/projects/recicla+_empresa_campanhas.png', title: 'Campanhas' },
+          { src: '/images/projects/recicla+_empresa_esg.png', title: 'Relatório ESG' },
+          { src: '/images/projects/recicla+_empresa_marca.png', title: 'Marca' },
+        ],
+      },
+    ],
+  },
+  {
     title: 'Site Institucional — Centro Espírita de Umbanda',
     description: 'Landing page institucional com mapa, vídeo de apresentação, agenda, doações, documentos, projetos e marco dos 20 anos da instituição.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
@@ -53,7 +96,7 @@ const projects = [
   },
   {
     title: 'Portfolio Pessoal',
-    description: 'Este portfolio — desenvolvido com Next.js, Express e TDD com Vitest. Dark/light mode, terminal animado e integração com WhatsApp via Evolution API.',
+    description: 'Este portfolio desenvolvido com Next.js, Express e TDD com Vitest. Dark/light mode, terminal animado e integração com WhatsApp via Evolution API.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Vitest', 'Evolution API'],
     status: 'done' as const,
     visibility: 'public' as const,

@@ -7,7 +7,7 @@ const contact_limiter = rateLimit({
   max: 10,
   standardHeaders: true,
   legacyHeaders: false,
-  skip: () => process.env.NODE_ENV === 'test',
+  skip: (req) => process.env.NODE_ENV === 'test' || req.hostname === 'localhost',
   message: { error: 'Too many requests, please try again later.' },
 })
 
@@ -56,7 +56,8 @@ contact_router.post('/', contact_limiter, auth_middleware, async (req: Request, 
     )
 
     if (!evolution_res.ok) {
-      console.error('[contact] Evolution API error:', evolution_res.status)
+      const error_body = await evolution_res.text()
+      console.error('[contact] Evolution API error:', evolution_res.status, error_body)
       res.status(502).json({ error: 'Failed to send message' })
       return
     }
