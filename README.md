@@ -1,6 +1,6 @@
-# My Portfolio — Leonardo Cardoso
+# My Portfolio (Leonardo Cardoso)
 
-Personal portfolio built with Next.js + Node.js/Express, featuring WhatsApp contact integration via Evolution API.
+Personal portfolio built with Next.js and Node.js/Express. The contact form delivers messages to WhatsApp through the Evolution API.
 
 ## Stack
 

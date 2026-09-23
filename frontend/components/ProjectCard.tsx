@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { use_theme } from '../context/ThemeContext'
-import Lightbox from './Lightbox'
+import Lightbox, { type GalleryImage } from './Lightbox'
 
 type Status = 'done' | 'in_progress' | 'planned'
 type Visibility = 'public' | 'private'
@@ -17,7 +17,7 @@ interface ImageGroup {
   images: ProjectImage[]
 }
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   title: string
   description: string
   techs: string[]
@@ -49,25 +49,46 @@ const visibility_class: Record<Visibility, string> = {
   private: 'bg-zinc-500/10 text-zinc-400 border border-zinc-500/20',
 }
 
+function flatten_images(groups: ImageGroup[]): GalleryImage[] {
+  return groups.flatMap(group => group.images.map(img => ({ ...img, group: group.label })))
+}
+
 export default function ProjectCard({ title, description, techs, status, visibility, github, image_groups }: ProjectCardProps) {
   const { theme } = use_theme()
-  const [lightbox, set_lightbox] = useState<ProjectImage | null>(null)
+  const [gallery_open, set_gallery_open] = useState(false)
 
   const border_class = theme === 'dark' ? 'border-zinc-700' : 'border-zinc-200'
   const desc_class = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
   const tag_class = theme === 'dark' ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-100 text-zinc-700'
-  const group_label_class = theme === 'dark' ? 'text-zinc-300 border-zinc-700' : 'text-zinc-600 border-zinc-200'
-  const img_title_class = theme === 'dark' ? 'text-zinc-400 bg-zinc-900' : 'text-zinc-500 bg-zinc-50'
-  const has_images = image_groups && image_groups.length > 0
+  const button_class = theme === 'dark'
+    ? 'border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white'
+    : 'border-zinc-200 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900'
+
+  const images = image_groups ? flatten_images(image_groups) : []
+  const cover_image = images[0]
 
   return (
     <>
       <div
         data-testid='project-card'
-        className={`flex flex-col gap-5 rounded-lg border ${border_class} p-5 transition-all duration-200 hover:scale-[1.01] hover:shadow-lg`}
+        className={`flex flex-col gap-4 overflow-hidden rounded-lg border ${border_class} transition-all duration-200 hover:shadow-lg`}
       >
-        {/* Info */}
-        <div className='flex flex-col gap-4'>
+        {cover_image && (
+          <button
+            onClick={() => set_gallery_open(true)}
+            aria-label={`Ver fotos de ${title}`}
+            className='group relative block w-full cursor-pointer overflow-hidden'
+          >
+            <img
+              data-testid='project-cover'
+              src={cover_image.src}
+              alt={cover_image.title}
+              className='max-h-56 w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]'
+            />
+          </button>
+        )}
+
+        <div className='flex flex-col gap-4 px-5 pb-5'>
           <div className='flex items-start justify-between gap-2'>
             <h3 className='font-semibold text-lg'>{title}</h3>
             <div className='flex shrink-0 flex-col items-end gap-1.5'>
@@ -92,52 +113,41 @@ export default function ProjectCard({ title, description, techs, status, visibil
             ))}
           </div>
 
-          {visibility === 'public' && github && (
-            <a
-              href={github}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='self-start text-xs text-zinc-400 underline underline-offset-2 hover:text-zinc-200 transition-colors'
-            >
-              Ver repositório →
-            </a>
-          )}
-        </div>
+          <div className='flex flex-wrap items-center gap-4'>
+            {images.length > 0 && (
+              <button
+                data-testid='project-gallery-button'
+                onClick={() => set_gallery_open(true)}
+                className={`flex items-center gap-2 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${button_class}`}
+              >
+                <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+                  <rect x='3' y='3' width='18' height='18' rx='2' />
+                  <circle cx='8.5' cy='8.5' r='1.5' />
+                  <path d='M21 15l-5-5L5 21' />
+                </svg>
+                Ver fotos ({images.length})
+              </button>
+            )}
 
-        {/* Imagens */}
-        {has_images && (
-          <div data-testid='project-images-section' className='flex flex-col gap-5'>
-            {image_groups!.map(group => (
-              <div key={group.label} className='flex flex-col gap-3'>
-                <span className={`text-xs font-bold uppercase tracking-widest pb-1 border-b ${group_label_class}`}>
-                  {group.label}
-                </span>
-                <div className='grid grid-cols-2 gap-3'>
-                  {group.images.map((img) => (
-                    <div key={img.src} className='flex flex-col gap-1'>
-                      <span className={`text-xs font-medium truncate ${img_title_class} px-1.5 py-0.5 rounded`}>
-                        {img.title}
-                      </span>
-                      <img
-                        src={img.src}
-                        alt={img.title}
-                        onClick={() => set_lightbox(img)}
-                        className={`w-full rounded-md border ${border_class} cursor-pointer hover:opacity-80 transition-opacity object-contain${img.title.toLowerCase().includes('readme') ? ' max-h-32 object-top' : ''}`}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+            {visibility === 'public' && github && (
+              <a
+                href={github}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-xs text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-200'
+              >
+                Ver repositório →
+              </a>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
-      {lightbox && (
+      {gallery_open && (
         <Lightbox
-          src={lightbox.src}
-          alt={lightbox.title}
-          on_close={() => set_lightbox(null)}
+          images={images}
+          start_index={0}
+          on_close={() => set_gallery_open(false)}
         />
       )}
     </>
