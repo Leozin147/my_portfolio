@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Projetos',
-  description: 'Projetos desenvolvidos por Leonardo Cardoso — automações, APIs, dashboards e mais.',
+  description: 'Sistemas e automações desenvolvidos por Leonardo Cardoso, com projetos em produção e em andamento.',
   openGraph: {
     title: 'Projetos | Leonardo Cardoso',
-    description: 'Projetos desenvolvidos por Leonardo Cardoso — automações, APIs, dashboards e mais.',
+    description: 'Sistemas e automações desenvolvidos por Leonardo Cardoso, com projetos em produção e em andamento.',
   },
 }
 
