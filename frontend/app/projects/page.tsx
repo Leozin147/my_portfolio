@@ -144,6 +144,20 @@ const projects = [
     ],
   },
   {
+    title: 'PontoCerto',
+    description: 'PWA de roteirização para entregadores de última milha na Baixada Santista. Já tem cadastro de rotas e pacotes, scanner de código de barras com sessão offline, normalização de endereços e ingestão do CNEFE para geocodificar endereços de morro, onde nomes de rua se repetem entre bairros e cidades.',
+    techs: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Express', 'Zod', 'PostgreSQL', 'PostGIS', 'Drizzle ORM', 'Docker', 'GitHub Actions', 'Vitest'],
+    status: 'in_progress' as const,
+    visibility: 'private' as const,
+  },
+  {
+    title: 'Censo Comunitário',
+    description: 'Pipeline que lê as respostas do Google Forms no Sheets, trata os dados e calcula eixos, índice e perfis de engajamento, com dashboard de banco de talentos e matriz de prioridades.',
+    techs: ['Python', 'pandas', 'Streamlit', 'Plotly'],
+    status: 'done' as const,
+    visibility: 'private' as const,
+  },
+  {
     title: 'Site Institucional - CEUNSC',
     description: 'Site institucional do CEUNSC, feito para quem chega pelo Google e precisa saber onde é, quando abre e como ajudar. Tem mapa de localização, vídeo de apresentação, agenda das atividades, área de doação, os documentos abertos da instituição, os projetos sociais e a linha do tempo dos 20 anos.',
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],

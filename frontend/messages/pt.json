@@ -6,15 +6,16 @@
     "contact": "Contato"
   },
   "hero": {
-    "role": "Desenvolvedor backend júnior e low-code pleno, focado em automação, integrações e IA",
-    "terminal": "Low-Code & Desenvolvedor Backend. Apaixonado por automação, integrações inteligentes e IA.",
+    "role": "Desenvolvedor full-stack focado em automação, integrações e IA",
+    "terminal": "Desenvolvedor full-stack. Trabalho com automação, integrações e IA.",
     "linkedin": "Conecte-se comigo no LinkedIn →",
+    "resume": "Baixar currículo (PDF)",
     "cta": "Explore Meus Serviços →"
   },
   "home": {
     "toolkit_title": "Hard Skills",
     "background_title": "Background",
-    "background": "Me chamo Leonardo, tenho 22 anos e estou na área de desenvolvimento há 3 anos. Comecei pelo Backend, estudando sozinho, na prática, sem curso, sem roteiro. Aprendi lógica, linguagem e fui descobrindo os caminhos enquanto os percorria. Depois caí de paraquedas no mundo Low-Code: entrei numa empresa e fui jogado direto em N8N, Make, Zapier, AppScript, Power BI, Looker Studio. Aprendi fazendo, errando e entregando. Hoje junto os dois mundos, automação com visão de engenharia, e código com mentalidade de quem já automatizou centenas de processos. Sou autodidata, focado, e antes de qualquer solução eu sempre paro para entender o problema de verdade. Porque solução sem problema definido é só complexidade à toa."
+    "background": "Sou desenvolvedor full-stack em Santos/SP e trabalho com automação, integrações e agentes de IA em produção. Comecei estudando backend por conta própria e entrei na área pela automação, onde fui responsável técnico de um setor por quase 2 anos: conversava com o cliente, desenhava a solução, desenvolvia, apresentava e cuidava da manutenção. Uma automação de cobrança que entreguei recuperou cerca de R$ 90 mil em uns 15 dias. Hoje desenvolvo aplicações com React, Next.js, Node.js, TypeScript e PostgreSQL, publico em VPS com Docker e sigo usando N8N e LLMs nos meus projetos. Curso Sistemas de Informação e, antes de propor qualquer solução, paro para entender o problema."
   },
   "projects": {
     "title": "Projetos",
@@ -38,7 +39,7 @@
     "service_4_title": "Dashboards & Análise de Dados",
     "service_4_desc": "Dashboard em Power BI ou Looker Studio ligado direto na origem do dado, sem ninguém exportando planilha na mão toda segunda. Você abre e vê o número de hoje, com filtro por período e histórico para comparar com o mês passado.",
     "service_5_title": "Desenvolvimento Backend",
-    "service_5_desc": "API em Node com TypeScript e PostgreSQL, coberta por testes. Validação de schema em toda rota que recebe dado do cliente, autenticação com JWT e senha com hash, permissão checada no servidor e não na tela. Separada em service e repository, então regra nova depois não quebra o que já funciona. Deploy em Docker na sua VPS."
+    "service_5_desc": "API em Node com TypeScript e PostgreSQL, coberta por testes. Validação de schema em toda rota que recebe dado do cliente, autenticação com JWT e senha com hash, permissão checada no servidor e não na tela. Separada em service e repository, então regra nova depois não quebra o que já funciona. Deploy em Docker na sua VPS. Já migrei 3 bancos PostgreSQL do Supabase para uma VPS própria, com backup e recuperação em ponto no tempo (PITR) usando pgBackRest."
   },
   "contact": {
     "title": "Entre em contato",

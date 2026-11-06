@@ -6,15 +6,16 @@
     "contact": "Contact"
   },
   "hero": {
-    "role": "Junior backend and low-code developer, focused on automation, integrations and AI",
-    "terminal": "Low-Code & Backend Developer. Passionate about automation, intelligent integrations and AI.",
+    "role": "Full-stack developer focused on automation, integrations and AI",
+    "terminal": "Full-stack developer. I work with automation, integrations and AI.",
     "linkedin": "Connect with me on LinkedIn →",
+    "resume": "Download resume (PDF)",
     "cta": "Explore My Services →"
   },
   "home": {
     "toolkit_title": "Hard Skills",
     "background_title": "Background",
-    "background": "My name is Leonardo, I'm 22 years old and I've been in development for 3 years. I started with Backend, studying on my own, learning through practice with no course, no roadmap. I learned logic, language, and discovered the paths as I walked them. Then I fell headfirst into the Low-Code world: joined a company and was thrown straight into N8N, Make, Zapier, AppScript, Power BI, Looker Studio. I learned by doing, failing, and delivering. Today I combine both worlds, automation with an engineering mindset, and code with the perspective of someone who has automated hundreds of processes. I'm self-taught, focused, and before any solution I always stop to truly understand the problem. Because a solution without a defined problem is just unnecessary complexity."
+    "background": "I'm a full-stack developer based in Santos, Brazil, working with automation, integrations and AI agents in production. I started out studying backend on my own and got into the field through automation, where I was the technical lead of a team for almost 2 years: I talked to clients, designed the solution, built it, presented it and handled maintenance. One debt collection automation I delivered recovered around R$ 90k in about 15 days. Today I build applications with React, Next.js, Node.js, TypeScript and PostgreSQL, deploy to a VPS with Docker and keep using N8N and LLMs in my projects. I'm studying Information Systems, and before I propose any solution, I stop to understand the problem."
   },
   "projects": {
     "title": "Projects",
@@ -38,7 +39,7 @@
     "service_4_title": "Dashboards & Analytics",
     "service_4_desc": "A Power BI or Looker Studio dashboard wired straight to the source data, with nobody exporting spreadsheets by hand every Monday. You open it and see today's number, filtered by period, with history to compare against last month.",
     "service_5_title": "Backend Development",
-    "service_5_desc": "A Node API in TypeScript over PostgreSQL, covered by tests. Schema validation on every route that takes client input, JWT auth with hashed passwords, permissions checked on the server instead of in the UI. Split into service and repository layers, so new rules later don't break what already works. Deployed with Docker on your VPS."
+    "service_5_desc": "A Node API in TypeScript over PostgreSQL, covered by tests. Schema validation on every route that takes client input, JWT auth with hashed passwords, permissions checked on the server instead of in the UI. Split into service and repository layers, so new rules later don't break what already works. Deployed with Docker on your VPS. I've migrated 3 PostgreSQL databases from Supabase to my own VPS, with point-in-time recovery (PITR) backups using pgBackRest."
   },
   "contact": {
     "title": "Get in touch",

@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
+import pt_messages from '../messages/pt.json'
 
 type Locale = 'pt' | 'en'
 
@@ -20,7 +21,7 @@ export function use_locale() {
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, set_locale_state] = useState<Locale>('pt')
-  const [messages, set_messages] = useState<Record<string, unknown> | null>(null)
+  const [messages, set_messages] = useState<Record<string, unknown>>(pt_messages)
 
   useEffect(() => {
     const saved = localStorage.getItem('locale') as Locale | null
@@ -38,11 +39,9 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('locale', next)
   }
 
-  if (!messages) return null
-
   return (
     <LocaleContext.Provider value={{ locale, set_locale }}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider locale={locale} messages={messages} timeZone='America/Sao_Paulo'>
         {children}
       </NextIntlClientProvider>
     </LocaleContext.Provider>

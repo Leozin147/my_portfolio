@@ -6,40 +6,45 @@ import { use_theme } from '../context/ThemeContext'
 import { useTranslations } from 'next-intl'
 
 const backend_skills = [
-  { name: 'Node.js / Express', level: 3 },
-  { name: 'TypeScript', level: 3 },
-  { name: 'JavaScript', level: 3 },
-  { name: 'REST APIs', level: 5 },
-  { name: 'PostgreSQL', level: 4 },
-  { name: 'Docker', level: 3 },
-  { name: 'Postman', level: 5 },
+  'Node.js / Express',
+  'TypeScript',
+  'JavaScript',
+  'REST APIs',
+  'PostgreSQL',
+  'PostGIS',
+  'Drizzle ORM',
+  'Zod',
+  'Docker',
+  'Postman',
+  'Python',
 ]
 
 const frontend_skills = [
-  { name: 'Next.js / React', level: 2 },
-  { name: 'TypeScript', level: 2 },
-  { name: 'Tailwind CSS', level: 4 },
+  'Next.js / React',
+  'TypeScript',
+  'Tailwind CSS',
 ]
 
 const tools_skills = [
-  { name: 'N8N', level: 5 },
-  { name: 'Make (Integromat)', level: 5 },
-  { name: 'Google AppScript', level: 5 },
-  { name: 'Power BI', level: 4 },
-  { name: 'Looker Studio', level: 5 },
-  { name: 'Webhooks / JSON', level: 5 },
-  { name: 'Git', level: 4 },
-  { name: 'GCP', level: 3 },
-  { name: 'Cloudflare', level: 3 },
-  { name: 'Supabase', level: 4 },
-  { name: 'Redis', level: 4 },
-  { name: 'Evolution API', level: 5 },
-  { name: 'OpenAI API', level: 4 },
-  { name: 'Vitest', level: 3 },
-  { name: 'Notion', level: 5 },
-  { name: 'VPS (Linux)', level: 4 },
-  { name: 'Postman', level: 5 },
-
+  'N8N',
+  'Make (Integromat)',
+  'Google AppScript',
+  'Power BI',
+  'Looker Studio',
+  'Webhooks / JSON',
+  'Git',
+  'GitHub Actions',
+  'GCP',
+  'Cloudflare',
+  'Supabase',
+  'pgBackRest',
+  'Redis',
+  'Evolution API',
+  'OpenAI API',
+  'Claude Code',
+  'Vitest',
+  'Notion',
+  'VPS (Linux)',
 ]
 
 export default function Home() {
@@ -65,27 +70,27 @@ export default function Home() {
         <div className='flex flex-col gap-8'>
           <div className='flex flex-col gap-3'>
             <h3 className={`text-sm font-bold uppercase tracking-widest ${group_title_class}`}>Backend</h3>
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+            <div data-testid='skills-backend' className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
               {backend_skills.map(skill => (
-                <SkillCard key={skill.name} name={skill.name} level={skill.level} />
+                <SkillCard key={skill} name={skill} />
               ))}
             </div>
           </div>
 
           <div className='flex flex-col gap-3'>
             <h3 className={`text-sm font-bold uppercase tracking-widest ${group_title_class}`}>Frontend</h3>
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+            <div data-testid='skills-frontend' className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
               {frontend_skills.map(skill => (
-                <SkillCard key={skill.name} name={skill.name} level={skill.level} />
+                <SkillCard key={skill} name={skill} />
               ))}
             </div>
           </div>
 
           <div className='flex flex-col gap-3'>
             <h3 className={`text-sm font-bold uppercase tracking-widest ${group_title_class}`}>Tools</h3>
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+            <div data-testid='skills-tools' className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
               {tools_skills.map(skill => (
-                <SkillCard key={skill.name} name={skill.name} level={skill.level} />
+                <SkillCard key={skill} name={skill} />
               ))}
             </div>
           </div>

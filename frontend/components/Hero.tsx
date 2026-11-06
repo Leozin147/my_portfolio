@@ -10,7 +10,7 @@ export default function Hero() {
   const t = useTranslations('hero')
 
   const role_class = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'
-  const linkedin_class = theme === 'dark'
+  const link_class = theme === 'dark'
     ? 'text-zinc-400 hover:text-white transition-colors text-sm'
     : 'text-zinc-500 hover:text-zinc-900 transition-colors text-sm'
 
@@ -29,16 +29,26 @@ export default function Hero() {
         <Terminal text={t('terminal')} speed={35} />
       </div>
 
-      <a
-        data-testid='hero-linkedin'
-        href='https://www.linkedin.com/in/leonardo-fernandes-cardoso-7a6a75269'
-        target='_blank'
-        rel='noopener noreferrer'
-        className={`animate-fade-in-up ${linkedin_class}`}
-        style={{ animationDelay: '200ms' }}
-      >
-        {t('linkedin')}
-      </a>
+      <div className='flex flex-wrap gap-x-6 gap-y-2 animate-fade-in-up' style={{ animationDelay: '200ms' }}>
+        <a
+          data-testid='hero-linkedin'
+          href='https://www.linkedin.com/in/leonardo-fernandes-cardoso-7a6a75269'
+          target='_blank'
+          rel='noopener noreferrer'
+          className={link_class}
+        >
+          {t('linkedin')}
+        </a>
+
+        <a
+          data-testid='hero-resume'
+          href='/leonardo_cardoso_curriculo.pdf'
+          download
+          className={link_class}
+        >
+          {t('resume')}
+        </a>
+      </div>
 
       <Link
         data-testid='hero-cta'
